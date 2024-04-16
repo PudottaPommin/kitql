@@ -683,7 +683,7 @@ export function extractParamsFromPath(path: string, o: Options): Param[] {
   const paramPattern = /\[+([^\]]+)]+/g
   const params: Param[] = []
 
-  const relToParams = relative(dirname(options.generated_file_path), options.path_params)
+  const relToParams = relative(dirname(options.generated_file_path), options.path_params).replaceAll('\\', '/')
 
   let match
   while ((match = paramPattern.exec(path)) !== null) {
